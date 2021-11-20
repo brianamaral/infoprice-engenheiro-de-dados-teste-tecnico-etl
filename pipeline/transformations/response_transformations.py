@@ -3,7 +3,12 @@ def is_status_ok(response: dict) -> bool:
         return "NOT OK"
     else:
         return "OK"
-        
+
+
+def cast_to_int(element) -> int:
+    return int(element)
+
+
 def get_name(response: dict) -> str:
     return response["nome"]
 
