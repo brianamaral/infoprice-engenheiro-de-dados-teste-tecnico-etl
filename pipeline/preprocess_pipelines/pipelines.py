@@ -17,10 +17,6 @@ def preprocess_gs1(gs1_dataframe: pd.DataFrame) -> pd.DataFrame:
 
     gs1_dataframe = filter_nan(dataframe=gs1_dataframe, column="cnpj_manufacturer")
 
-    gs1_dataframe["cidade"] = gs1_dataframe["response"].apply(get_city)
-
-    gs1_dataframe["estado"] = gs1_dataframe["response"].apply(get_state)
-
     return gs1_dataframe
 
 
@@ -30,8 +26,10 @@ def preprocess_cnpj(cnpj_dataframe: pd.DataFrame) -> pd.DataFrame:
 
     cnpj_dataframe = filter_ok_status(dataframe=cnpj_dataframe)
 
-    cnpj_dataframe = cnpj_dataframe.rename(columns={"cnpj": "cnpj_manufacturer"})
-
     cnpj_dataframe["razao_social"] = cnpj_dataframe["response"].apply(get_name)
+
+    cnpj_dataframe["cidade"] = cnpj_dataframe["response"].apply(get_city)
+
+    cnpj_dataframe["estado"] = cnpj_dataframe["response"].apply(get_state)
 
     return cnpj_dataframe

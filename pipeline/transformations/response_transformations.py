@@ -14,8 +14,15 @@ def get_name(response: dict) -> str:
 
 
 def get_city(response: dict) -> str:
-    return response["gepirParty"]["partyDataLine"]["address"]["city"]
+    
+    try:
+        return response["municipio"]
+    except KeyError:
+        return "NAO ENCONTRADO"
 
 
 def get_state(response: dict) -> str:
-    return response["gepirParty"]["partyDataLine"]["address"]["state"]
+    try:
+        return response["uf"]
+    except KeyError:
+        return "NAO ENCONTRADO"

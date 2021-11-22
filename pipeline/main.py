@@ -22,7 +22,6 @@ if __name__ == "__main__":
 
     scaned_codes_dataframe = pd.read_csv("data/input/infomix.tsv", sep="\t")
 
-
     gs1_dataframe = pd.read_json("data/input/gs1.jl", lines=True)
 
     gs1_dataframe = preprocess_gs1(gs1_dataframe)
@@ -40,19 +39,19 @@ if __name__ == "__main__":
         dataframe=external_descriptions_dataframe, column="flag_infoprice"
     )
 
+      
     validated_scans = inner_join(
         left_dataframe=scaned_codes_dataframe, right_dataframe=gs1_dataframe, key="gtin"
-    )
+    ) 
 
-    validated_scans["cnpj_manufacturer"] = validated_scans["cnpj_manufacturer"].apply(
-        lambda x: int(x)
-    )
+     
 
     validated_scans = inner_join(
         left_dataframe=validated_scans,
         right_dataframe=cnpj_dataframe,
-        key="cnpj_manufacturer",
+        key="cnpj",
     )
+
 
     validated_scans = left_join(
         left_dataframe=validated_scans,
@@ -82,3 +81,4 @@ if __name__ == "__main__":
     validated_scans.to_csv(
         path_or_buf="data/output/gtins_vendidos.tsv", sep="\t", index=False
     )
+    
