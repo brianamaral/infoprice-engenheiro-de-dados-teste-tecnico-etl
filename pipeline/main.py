@@ -72,7 +72,7 @@ if __name__ == "__main__":
                 "category",
                 "description",
             ]
-        
+            
     )
 
     validated_scans = validated_scans.rename(
