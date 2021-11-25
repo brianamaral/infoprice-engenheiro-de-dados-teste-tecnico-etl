@@ -21,3 +21,10 @@ Minha solução para o teste técnico para vaga de Engenheiro de Dados Jr na Inf
              |--row_transformations.py #transformações comuns de linhas
 	|--main.py #script principal da pipeline
 ```
+
+### Arquitetura do Projeto
+![plot](./assets/arquitetura.png)
+
+## Implementação
+
+Para a construção do projeto, utilizei Pandas, pois facilitaria a exploração dos dados, para assim poder construir a pipeline e realizar os joins corretos.
