@@ -23,7 +23,7 @@ Minha solução para o teste técnico para vaga de Engenheiro de Dados Jr na Inf
 ```
 
 ### Arquitetura do Projeto
-![plot](./assets/arquitetura.png)
+![plot](./assets/arquitetura_etl.png)
 
 ## Implementação
 
